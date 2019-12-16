@@ -57,7 +57,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
 				<?php endif; ?>
-
 			</main><!-- #main -->
 
 			<!-- The pagination component -->

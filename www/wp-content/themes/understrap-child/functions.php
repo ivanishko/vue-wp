@@ -30,3 +30,9 @@ $understrap_includes = array(
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+add_filter('show_admin_bar', '__return_false'); // отключить
+
+
+wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js', [], '2.5.17');
+wp_enqueue_script('vueapp', '/wp-content/themes/understrap-child/' . 'main.js', [], '1.0', true);
+
