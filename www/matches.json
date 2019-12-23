@@ -32,5 +32,29 @@
       "betX": 3.12,
       "bet2": 3.55
     }
+  ],
+
+  "bookmakers": [
+    {
+      "id": 1,
+      "name":"winline",
+      "translate": "Винлайн"
+    },
+    {
+      "id": 2,
+      "name":"liga_stavok",
+      "translate":   "Лига Ставок"
+    },
+    {
+      "id": 3,
+      "name":"fonbet",
+      "translate": "Фонбет"
+    }
   ]
+
+
+
+
+
+
 }

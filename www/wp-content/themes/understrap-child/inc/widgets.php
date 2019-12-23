@@ -97,6 +97,18 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 	function understrap_widgets_init() {
 		register_sidebar(
 			array(
+				'name'          => __( 'Right Sidebar Banner', 'understrap' ),
+				'id'            => 'right-sidebar-banner',
+				'description'   => __( 'Right sidebar banner widget area', 'understrap' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		register_sidebar(
+			array(
 				'name'          => __( 'Right Sidebar', 'understrap' ),
 				'id'            => 'right-sidebar',
 				'description'   => __( 'Right sidebar widget area', 'understrap' ),

@@ -1,0 +1,113 @@
+{
+  "matches": [
+    {
+      "id":1,
+      "team1":"Spartak",
+      "team2":"Dinamo",
+      "bet1": 2.33,
+      "betX": 3.12,
+      "bet2": 2.55,
+      "winline": {
+        "bet1": 1.11,
+        "betX": 2.22,
+        "bet2": 3.33
+      },
+      "liga_stavok": {
+        "bet1": 2.33,
+        "betX": 3.12,
+        "bet2": 2.55
+      },
+      "fonbet": {
+        "bet1": 2.44,
+        "betX": 3.55,
+        "bet2": 2.00
+      }
+    },
+    {
+      "id":2,
+      "team1":"CSKA",
+      "team2":"Lokomotiv",
+      "bet1": 2.33,
+      "betX": 3.12,
+      "bet2": 2.55,
+      "winline":{
+        "bet1": 3.44,
+        "betX": 3.00,
+        "bet2": 6.55
+      },
+      "liga_stavok": {
+        "bet1": 3.33,
+        "betX": 6.12,
+        "bet2": 7.55
+      },
+      "fonbet": {
+        "bet1": 8.33,
+        "betX": 6.12,
+        "bet2": 5.55
+      }
+    },
+    {
+      "id":3,
+      "team1":"Krasnodar",
+      "team2":"Sochi",
+      "bet1": 2.33,
+      "betX": 3.12,
+      "bet2": 2.55,
+      "winline": {
+        "bet1": 23.33,
+        "betX": 44.12,
+        "bet2": 25.55
+      },
+      "liga_stavok": {
+        "bet1": 52.33,
+        "betX": 36.12,
+        "bet2": 24.55
+      },
+      "fonbet": {
+        "bet1": 62.33,
+        "betX": 63.12,
+        "bet2": 52.55
+      }
+    },
+    {
+      "id":4,
+      "team1":"Rostov",
+      "team2":"Ufa",
+      "bet1": 2.33,
+      "betX": 3.12,
+      "bet2": 2.55,
+      "winline": {
+        "bet1": 2.33,
+        "betX": 3.12,
+        "bet2": 2.55
+      },
+      "liga_stavok":{
+        "bet1": 5.33,
+        "betX": 6.12,
+        "bet2": 7.55
+      },
+      "fonbet": {
+        "bet1": 3.33,
+        "betX": 3.12,
+        "bet2": 1.55
+      }
+    }
+  ],
+  "bookmakers": [
+    {
+      "id": 1,
+      "name":"winline",
+      "translate": "Винлайн"
+    },
+    {
+      "id": 2,
+      "name":"liga_stavok",
+      "translate":   "Лига Ставок"
+    },
+    {
+      "id": 3,
+      "name":"fonbet",
+      "translate": "Фонбет"
+    }
+  ]
+}
