@@ -6,7 +6,9 @@ const app = new Vue({
 		selectBookmaker: "winline",
 		bets:[],
 		text: '',
+		cash: 100,
 	},
+
 	created () {
 		fetch('./../matches_new.json')
 			.then(response => response.json())
@@ -15,8 +17,67 @@ const app = new Vue({
 				this.bookmakers = json.bookmakers
 			})
 	},
-	methods: {
+	mounted(){
+		this.bets =  JSON.parse(localStorage.getItem('bets') || []);
+		this.cash =  JSON.parse(localStorage.getItem('userCash') || 100);
+	},
 
+	methods: {
+		couponEnabled(){
+			return this.bets.length;
+		},
+		initEvent(eventBet){
+			switch(eventBet) {
+				case "1" : return "Победа 1";
+				case "2" : return "Победа 2";
+				case "X" : return "Ничья";
+				default: return 0;
+			}
+		},
+		addBet(matchID, team1, team2, bet, eventBet, book){
+			let idBet = Math.round(Math.random() * 10000)
+			let betUser = {
+				idBet,
+				matchID,
+				team1,
+				team2,
+				bet,
+				eventBet,
+				book
+			};
+			let userCash = this.cash;
+			this.bets.push(betUser);
+
+			localStorage.setItem('bets', JSON.stringify(this.bets));
+			localStorage.setItem('userCash', userCash);
+			console.log(this.bets);
+		},
+		deleteBet(index){
+			this.bets.splice(index,1);
+			console.log("delete");
+			localStorage.setItem('bets', JSON.stringify(this.bets));
+		},
+		clearCoupon(){
+			this.bets = [];
+			localStorage.setItem('bets',[]);
+			this.cash = 100;
+			localStorage.setItem('userCash',this.cash);
+
+		},
+		getPossible(){
+			if (this.bets) {
+
+				return this.cash * this.getTotalRatio();
+			}
+			return 0;
+		},
+		getTotalRatio(){
+			if (this.bets) {
+				let kef = this.bets.reduce((kef, current) => current.bet * kef, 1);
+				return kef;
+			}
+			return 1;
+		},
 	}
 
 
@@ -42,18 +103,6 @@ Vue.component('ratio',{
 
 });
 
-
-
-
-Vue.component('button-counter', {
-	data: function () {
-		return {
-			count: 0
-		}
-	},
-	props: ['title'],
-	template: '<button v-on:click="count++">{{title}}Счётчик кликов — {{ count }}</button>'
-});
 
 
 Vue.component('coupon', {
