@@ -12,13 +12,6 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-	<?php wp_head(); ?>
-</head>
-
-<body>
 <div id="app">
 <div class="container">
 	<div class="row">
@@ -47,9 +40,24 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<tr v-for="(match,index) in matches" class="table table-bordered">
 							<td>{{index + 1 }}</td>
 							<td class="col-6 text-center">{{match.team1}} - {{match.team2}}</td>
-							<td class="td_kef"  @click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].bet1.ratio, match[selectBookmaker].bet1.eventBet, match[selectBookmaker].bookName)"> {{match[selectBookmaker].bet1.ratio.toFixed(2)}}</td>
-							<td class="td_kef"  @click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].betX.ratio, match[selectBookmaker].betX.eventBet, match[selectBookmaker].bookName)"> {{match[selectBookmaker].betX.ratio.toFixed(2)}}</td>
-							<td class="td_kef"  @click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].bet2.ratio, match[selectBookmaker].bet2.eventBet, match[selectBookmaker].bookName)"> {{match[selectBookmaker].bet2.ratio.toFixed(2)}}</td>
+							<td class="td_kef">
+								<div
+									v-bind:class="initClass(match[selectBookmaker].bet1.idBet)"
+									@click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].bet1.ratio, match[selectBookmaker].bet1.eventBet, match[selectBookmaker].bookName, match[selectBookmaker].bet1.idBet)"
+								>{{match[selectBookmaker].bet1.ratio.toFixed(2)}}</div>
+							</td>
+							<td class="td_kef">
+								<div
+									v-bind:class="initClass(match[selectBookmaker].betX.idBet)"
+									@click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].betX.ratio, match[selectBookmaker].betX.eventBet, match[selectBookmaker].bookName, match[selectBookmaker].betX.idBet)"
+									>{{match[selectBookmaker].betX.ratio.toFixed(2)}}</div>
+							</td>
+							<td class="td_kef">
+								<div
+									v-bind:class="initClass(match[selectBookmaker].bet2.idBet)"
+									@click="addBet(match.id, match.team1, match.team2, match[selectBookmaker].bet2.ratio, match[selectBookmaker].bet2.eventBet, match[selectBookmaker].bookName, match[selectBookmaker].bet2.idBet)"
+								 >{{match[selectBookmaker].bet2.ratio.toFixed(2)}}</div>
+							</td>
 						</tr>
 					</table>
 
@@ -64,23 +72,34 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<h2>Coupon</h2>
 				<button class="btn btn-danger" @click="clearCoupon">Clear coupon</button>
 			<table class="table table-bordered">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Ratio</th>
+					<th>Match</th>
+					<th>Book.</th>
+					<th>Event</th>
+					<th>Del</th>
+				</tr>
+				</thead>
+				<tbody>
 				<tr v-for="(bet, key, index) in bets" :key="key">
 					<td>{{key + 1}}</td>
 					<td>{{bet.bet.toFixed(2)}}</td>
 					<td>{{bet.team1}} - {{bet.team2}}</td>
 					<td>{{bet.book}}</td>
 					<td>{{initEvent(bet.eventBet)}}</td>
+					<td><button class="btn btn-light" @click="deleteBet(key)">X</button></td>
 				</tr>
+				</tbody>
 			</table>
 			<div>
 				<span>Total ratio: </span><strong>{{getTotalRatio().toFixed(2)}}</strong>
 			</div>
 			<label for="cash">Your cash: </label> <input id="cash" v-model="cash" type="text" value="100">
 			<div>
-				<span>You possible winniings: </span><strong>{{getPossible().toFixed(2)}}</strong>
+				<span>You possible winnings: </span><strong>{{getPossible().toFixed(2)}}</strong>
 			</div>
-
-
 		</div>
 			<?php get_template_part( 'sidebar-templates/sidebar', 'banner-right' ); ?>
 		</div>
@@ -93,5 +112,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 
 <?php wp_footer(); ?>
-</body>
-</html>
+

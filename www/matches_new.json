@@ -6,22 +6,22 @@
       "team2":"Dinamo",
 
       "winline": {
-        "bet1": {"ratio": 1.11, "eventBet": "1"},
-        "betX": {"ratio": 3.22, "eventBet": "X"},
-        "bet2": {"ratio": 4.33, "eventBet": "2"},
+        "bet1": {"ratio": 1.11, "eventBet": "1", "idBet": 1},
+        "betX": {"ratio": 3.22, "eventBet": "X", "idBet": 2},
+        "bet2": {"ratio": 4.33, "eventBet": "2", "idBet": 3},
         "bookName": "Винлайн"
       },
       "liga_stavok": {
-        "bet1": {"ratio": 5.11, "eventBet": "1"},
-        "betX": {"ratio": 3.00, "eventBet": "X"},
-        "bet2": {"ratio": 4.30, "eventBet": "2"},
+        "bet1": {"ratio": 5.11, "eventBet": "1", "idBet": 4},
+        "betX": {"ratio": 3.00, "eventBet": "X", "idBet": 5},
+        "bet2": {"ratio": 4.30, "eventBet": "2", "idBet": 6},
         "bookName": "Лига ставок"
 
       },
       "fonbet": {
-        "bet1": {"ratio": 2.11, "eventBet": "1"},
-        "betX": {"ratio": 3.22, "eventBet": "X"},
-        "bet2": {"ratio": 6.33, "eventBet": "2"},
+        "bet1": {"ratio": 2.11, "eventBet": "1", "idBet": 7},
+        "betX": {"ratio": 3.22, "eventBet": "X", "idBet": 8},
+        "bet2": {"ratio": 6.33, "eventBet": "2", "idBet": 9},
         "bookName": "Фонбет"
       }
     },
@@ -31,22 +31,22 @@
       "team2":"Lokomotiv",
 
       "winline": {
-        "bet1": {"ratio": 34.11, "eventBet": "1"},
-        "betX": {"ratio": 23.22, "eventBet": "X"},
-        "bet2": {"ratio": 56.33, "eventBet": "2"},
+        "bet1": {"ratio": 34.11, "eventBet": "1", "idBet": 10},
+        "betX": {"ratio": 23.22, "eventBet": "X", "idBet": 11},
+        "bet2": {"ratio": 56.33, "eventBet": "2", "idBet": 12},
         "bookName": "Винлайн"
       },
       "liga_stavok": {
-        "bet1": {"ratio": 87.11, "eventBet": "1"},
-        "betX": {"ratio": 78.22, "eventBet": "X"},
-        "bet2": {"ratio": 78.33, "eventBet": "2"},
+        "bet1": {"ratio": 87.11, "eventBet": "1", "idBet": 13},
+        "betX": {"ratio": 78.22, "eventBet": "X", "idBet": 14},
+        "bet2": {"ratio": 78.33, "eventBet": "2", "idBet": 15},
         "bookName": "Лига ставок"
 
       },
       "fonbet": {
-        "bet1": {"ratio": 12.11, "eventBet": "1"},
-        "betX": {"ratio": 33.22, "eventBet": "X"},
-        "bet2": {"ratio": 55.33, "eventBet": "2"},
+        "bet1": {"ratio": 12.11, "eventBet": "1", "idBet": 16},
+        "betX": {"ratio": 33.22, "eventBet": "X", "idBet": 17},
+        "bet2": {"ratio": 55.33, "eventBet": "2", "idBet": 18},
         "bookName": "Фонбет"
       }
     },
@@ -56,56 +56,26 @@
       "team2":"Sochi",
 
       "winline": {
-        "bet1": {"ratio": 56.11, "eventBet": "1"},
-        "betX": {"ratio": 78.22, "eventBet": "X"},
-        "bet2": {"ratio": 78.33, "eventBet": "2"},
+        "bet1": {"ratio": 56.11, "eventBet": "1", "idBet": 19},
+        "betX": {"ratio": 78.22, "eventBet": "X", "idBet": 20},
+        "bet2": {"ratio": 78.33, "eventBet": "2", "idBet": 21},
         "bookName": "Винлайн"
       },
       "liga_stavok": {
-        "bet1": {"ratio": 56.11, "eventBet": "1"},
-        "betX": {"ratio": 76.22, "eventBet": "X"},
-        "bet2": {"ratio": 56.33, "eventBet": "2"},
+        "bet1": {"ratio": 56.11, "eventBet": "1", "idBet": 22},
+        "betX": {"ratio": 76.22, "eventBet": "X", "idBet": 23},
+        "bet2": {"ratio": 56.33, "eventBet": "2", "idBet": 24},
         "bookName": "Лига ставок"
 
       },
       "fonbet": {
-        "bet1": {"ratio": 67.11, "eventBet": "1"},
-        "betX": {"ratio": 67.22, "eventBet": "X"},
-        "bet2": {"ratio": 56.33, "eventBet": "2"},
-        "bookName": "Фонбет"
-      }
-    },
-    {
-      "id":4,
-      "team1":"Rostov",
-      "team2":"Ufa",
-
-      "winline": {
-        "bet1": {"ratio": 56.11, "eventBet": "1"},
-        "betX": {"ratio": 5.22, "eventBet": "X"},
-        "bet2": {"ratio": 45.33, "eventBet": "2"},
-        "bookName": "Винлайн"
-      },
-      "liga_stavok": {
-        "bet1": {"ratio": 20.11, "eventBet": "1"},
-        "betX": {"ratio": 39.22, "eventBet": "X"},
-        "bet2": {"ratio": 67.33, "eventBet": "2"},
-        "bookName": "Лига ставок"
-
-      },
-      "fonbet": {
-        "bet1": {"ratio": 1.11, "eventBet": "1"},
-        "betX": {"ratio": 2.22, "eventBet": "X"},
-        "bet2": {"ratio": 3.33, "eventBet": "2"},
+        "bet1": {"ratio": 67.11, "eventBet": "1", "idBet": 25},
+        "betX": {"ratio": 67.22, "eventBet": "X", "idBet": 26},
+        "bet2": {"ratio": 56.33, "eventBet": "2", "idBet": 27},
         "bookName": "Фонбет"
       }
     }
   ],
-
-
-
-
-
 
   "bookmakers": [
     {

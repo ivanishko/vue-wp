@@ -5,11 +5,10 @@ const app = new Vue({
 		bookmakers : [],
 		selectBookmaker: "winline",
 		bets:[],
-		text: '',
 		cash: 100,
 	},
 
-	created () {
+	created() {
 		fetch('./../matches_new.json')
 			.then(response => response.json())
 			.then(json => {
@@ -28,33 +27,63 @@ const app = new Vue({
 		},
 		initEvent(eventBet){
 			switch(eventBet) {
-				case "1" : return "Победа 1";
-				case "2" : return "Победа 2";
-				case "X" : return "Ничья";
+				case "1" : return "П1";
+				case "2" : return "П2";
+				case "X" : return "Н";
 				default: return 0;
 			}
 		},
-		addBet(matchID, team1, team2, bet, eventBet, book){
-			let idBet = Math.round(Math.random() * 10000)
+		initClass(idBet){
+			if (this.bets.find(item => item.idBet === idBet)) {
+				return "checkBet";
+			}
+		},
+		existBet(id){
+			if (this.bets && this.bets.find(item => item.idBet === id)) {
+				 return true
+			}
+		},
+
+		initIndexBet(idBet){
+			return  this.bets.findIndex(item => item.idBet === idBet)
+		},
+
+		initIndexMatch(id){
+			return this.bets.find(item => item.idMatch === id)
+		},
+
+		addBet(idMatch, team1, team2, bet, eventBet, book, idBet){
 			let betUser = {
-				idBet,
-				matchID,
+				idMatch,
 				team1,
 				team2,
 				bet,
 				eventBet,
-				book
+				book,
+				idBet
 			};
-			let userCash = this.cash;
-			this.bets.push(betUser);
+			let index = this.initIndexBet(idBet);
+
+				//Проверка на отсуствии этой ставки
+			if (!this.existBet(idBet) && !this.initIndexMatch(idMatch))  {
+				this.bets.push(betUser);
+
+				//Проверка на существовании ставки на этот матч но другое событие
+			}  else if (!this.existBet(idBet) && this.initIndexMatch(idMatch)) {
+				this.bets = this.bets.filter(item => item.idMatch !== idMatch);
+				this.bets.push(betUser);
+			}
+				//Действие на повторное нажатие
+			else {
+				this.bets.splice(index,1);
+			}
 
 			localStorage.setItem('bets', JSON.stringify(this.bets));
-			localStorage.setItem('userCash', userCash);
-			console.log(this.bets);
-		},
+
+			},
+
 		deleteBet(index){
-			this.bets.splice(index,1);
-			console.log("delete");
+			this.bets.filter(index,1);
 			localStorage.setItem('bets', JSON.stringify(this.bets));
 		},
 		clearCoupon(){
@@ -66,7 +95,6 @@ const app = new Vue({
 		},
 		getPossible(){
 			if (this.bets) {
-
 				return this.cash * this.getTotalRatio();
 			}
 			return 0;
@@ -79,45 +107,7 @@ const app = new Vue({
 			return 1;
 		},
 	}
-
-
-
 });
 
-
-Vue.component('ratio',{
-	data: function () {
-			return {
-				bets: []
-			}
-	},
-	props : ['bet', 'eventbet'],
-	methods: {
-		addBet(bet) {
-			console.log(bet);
-			this.bets.push(bet);
-		}
-	},
-	template:
-	`<div class="col-1 block-bets" v-on:click="addBet(bet)">{{bet}}</div>`,
-
-});
-
-
-
-Vue.component('coupon', {
-	data: function () {
-		return {
-			count: 0
-		}
-	},
-	props: ['bets'],
-	template: '<div>' +
-		'<h3>Купон</h3>' +
-		'<table class="table table-bordered">' +
-		'<tr><td>Bet</td></tr>' +
-		'</table>' +
-		'</div>'
-});
 
 
