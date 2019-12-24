@@ -67,40 +67,38 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<div class="col-lg-4 col-sm-12">
 			<div v-show="couponEnabled()">
-
-
-			<h2>Coupon</h2>
+				<h2>Coupon</h2>
+				<table class="table table-bordered">
+					<thead>
+					<tr>
+						<th>#</th>
+						<th>Ratio</th>
+						<th>Match</th>
+						<th>Book.</th>
+						<th>Event</th>
+						<th>Del</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr v-for="(bet, key, index) in bets" :key="key">
+						<td>{{key + 1}}</td>
+						<td>{{bet.bet.toFixed(2)}}</td>
+						<td>{{bet.team1}} - {{bet.team2}}</td>
+						<td>{{bet.book}}</td>
+						<td>{{initEvent(bet.eventBet)}}</td>
+						<td><button class="btn btn-light" @click="deleteBet(key)">X</button></td>
+					</tr>
+					</tbody>
+				</table>
+				<div>
+					<span>Total ratio: </span><strong>{{getTotalRatio().toFixed(2)}}</strong>
+				</div>
+				<label for="cash">Your cash: </label> <input id="cash" v-model="cash" type="text" value="100">
+				<div>
+					<span>You possible winnings: </span><strong>{{getPossible().toFixed(2)}}</strong>
+				</div>
 				<button class="btn btn-danger" @click="clearCoupon">Clear coupon</button>
-			<table class="table table-bordered">
-				<thead>
-				<tr>
-					<th>#</th>
-					<th>Ratio</th>
-					<th>Match</th>
-					<th>Book.</th>
-					<th>Event</th>
-					<th>Del</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr v-for="(bet, key, index) in bets" :key="key">
-					<td>{{key + 1}}</td>
-					<td>{{bet.bet.toFixed(2)}}</td>
-					<td>{{bet.team1}} - {{bet.team2}}</td>
-					<td>{{bet.book}}</td>
-					<td>{{initEvent(bet.eventBet)}}</td>
-					<td><button class="btn btn-light" @click="deleteBet(key)">X</button></td>
-				</tr>
-				</tbody>
-			</table>
-			<div>
-				<span>Total ratio: </span><strong>{{getTotalRatio().toFixed(2)}}</strong>
 			</div>
-			<label for="cash">Your cash: </label> <input id="cash" v-model="cash" type="text" value="100">
-			<div>
-				<span>You possible winnings: </span><strong>{{getPossible().toFixed(2)}}</strong>
-			</div>
-		</div>
 			<?php get_template_part( 'sidebar-templates/sidebar', 'banner-right' ); ?>
 		</div>
 
