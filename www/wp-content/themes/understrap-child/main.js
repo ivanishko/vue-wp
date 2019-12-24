@@ -83,7 +83,7 @@ const app = new Vue({
 			},
 
 		deleteBet(index){
-			this.bets.filter(index,1);
+			this.bets.splice(index,1);
 			localStorage.setItem('bets', JSON.stringify(this.bets));
 		},
 		clearCoupon(){
