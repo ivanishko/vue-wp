@@ -93,7 +93,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<div>
 					<span>Total ratio: </span><strong>{{getTotalRatio().toFixed(2)}}</strong>
 				</div>
-				<label for="cash">Your cash: </label> <input id="cash" v-model="cash" type="text" value="100">
+				<label for="cash">Your cash: </label>
+				<input
+					id="cash"
+					v-model="cash"
+					type="text"
+					oninput="this.value = this.value.replace(/[A-zА-яЁё\s]{1,6}$/, '')"
+
+				>
 				<div>
 					<span>You possible winnings: </span><strong>{{getPossible().toFixed(2)}}</strong>
 				</div>

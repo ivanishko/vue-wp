@@ -53,7 +53,7 @@ const app = new Vue({
 		},
 
 		addBet(idMatch, team1, team2, bet, eventBet, book, idBet){
-			let betUser = {
+			const betUser = {
 				idMatch,
 				team1,
 				team2,
