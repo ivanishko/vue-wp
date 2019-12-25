@@ -2,10 +2,11 @@ const app = new Vue({
 	el: '#app',
 	data: {
 		matches: [],
-		bookmakers : [],
+		bookmakers: [],
 		selectBookmaker: "winline",
-		bets:[],
+		bets: [],
 		cash: 100,
+		couponScreenOnly: false
 	},
 
 	created() {
@@ -23,8 +24,16 @@ const app = new Vue({
 
 	methods: {
 		couponEnabled(){
-			return this.bets.length;
-		},
+			if (this.bets.length && !this.initMobileScreen()) {
+				console.log('var 1')
+				return true
+			}
+			if ((this.bets.length || this.initMobileScreen()) && this.couponScreenOnly) {
+				console.log('var 2')
+				return true;
+			}
+		}
+		,
 		initEvent(eventBet){
 			switch(eventBet) {
 				case "1" : return "П1";
@@ -84,10 +93,18 @@ const app = new Vue({
 
 		deleteBet(index){
 			this.bets.splice(index,1);
+			if (!this.bets.length && this.couponScreenOnly) {
+				this.couponScreenOnly = false
+			}
 			localStorage.setItem('bets', JSON.stringify(this.bets));
 		},
 		clearCoupon(){
 			this.bets = [];
+
+			if (!this.bets.length && this.couponScreenOnly) {
+				this.couponScreenOnly = false
+			}
+
 			localStorage.setItem('bets',[]);
 			this.cash = 100;
 			localStorage.setItem('userCash',this.cash);
@@ -106,6 +123,27 @@ const app = new Vue({
 			}
 			return 1;
 		},
+
+		initMobileScreen() {
+			let width = window.innerWidth
+				|| document.documentElement.clientWidth
+				|| document.body.clientWidth;
+
+			if (width <= 765) {
+				return true;
+			}
+		},
+		enableClassCoupon(){
+			if (!this.bets.length){
+				return "disable-coupon"
+			}
+		},
+
+		clickNavPanel(){
+			if (this.bets.length) {
+				this.couponScreenOnly = !this.couponScreenOnly ;
+			}
+		}
 	}
 });
 

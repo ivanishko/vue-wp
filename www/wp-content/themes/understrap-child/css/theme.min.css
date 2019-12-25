@@ -42,3 +42,64 @@ td.td_kef div:hover {
 .checkBet {
 	background: aquamarine;
 }
+.footer_nav_menu {
+	display:none;
+}
+
+.widget_media_image    {
+	margin-bottom: 60px;
+}
+
+@media (min-width: 350px) and (max-width: 765px){
+	.footer_nav_menu  {
+		background: #3399ff;
+		display:flex;
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+
+	}
+	.footer_nav_menu ul {
+		list-style: none;
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.footer_nav_menu ul li {
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		width: 70px;
+		min-height: 70px;
+		padding: 0 5px;
+		border: 1px solid #9adffd;
+		border-radius: 10px;
+		position: relative;
+	}
+	.footer_nav_menu ul li:hover {
+		cursor: pointer;
+		background-color: #9adffd;
+	}
+	.footer_nav_menu ul li span.enabled-coupon{
+		border-radius:10px;
+		width: 20px;
+		height: 20px;
+		color: white;
+		font-size: 13px;
+		background-color: red;
+		position: absolute;
+		top: -10px;
+		right: 0;
+	}
+
+	.footer_nav_menu ul li.disable-coupon {
+		color: #8f98a1;
+	}
+	.footer_nav_menu ul li.disable-coupon:hover {
+		cursor: default;
+		background-color: unset;
+	}
+}

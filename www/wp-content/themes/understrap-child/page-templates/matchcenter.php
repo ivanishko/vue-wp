@@ -15,7 +15,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div id="app">
 <div class="container">
 	<div class="row">
-		<div class="col-lg-8 col-sm-12">
+		<div class="col-lg-8 col-sm-12" v-if="!couponScreenOnly">
 				<h1>Матч центр</h1>
 				<div class="">
 					<label for="rating">Bookmaker:</label>
@@ -98,7 +98,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					id="cash"
 					v-model="cash"
 					type="text"
-					oninput="this.value = this.value.replace(/[A-zА-яЁё\s]{1,6}$/, '')"
+					oninput="this.value = this.value.replace(/[A-zА-яЁё\s]$/, '')"
 
 				>
 				<div>
@@ -110,11 +110,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</div>
 
 	</div>
-</div>
 
 </div>
-
-
+	<div v-show="initMobileScreen()" class="nav_container footer_nav_menu">
+		<ul>
+			<li>Point 1</li>
+			<li>Point 2</li>
+			<li v-bind:class="enableClassCoupon()" @click="clickNavPanel()" >Купон <span v-show="this.bets.length" class="enabled-coupon">{{this.bets.length}}</span></li>
+			<li>Point 4</li>
+			<li>Point 5</li>
+		</ul>
+	</div>
+</div>
 
 <?php wp_footer(); ?>
 
