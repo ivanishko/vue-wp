@@ -4,3 +4,5 @@ www/phpmyadmin
 ubuntu-xenial-16.04-cloudimg-console.log
 www/wp-content/uploads/
 www/wp-config.php
+logs
+.idea
