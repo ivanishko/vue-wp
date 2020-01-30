@@ -62,7 +62,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 					</table>
 
 				</div>
-
+				<img src="/wp-content/uploads/2020/01/Снимок-экрана-2020-01-30-в-13.12.50.png" />
+				 <p><a href="https://github.com/ivanishko/vue-wp/blob/master/www/wp-content/themes/understrap-child/main.js" target=_blank>Код страницы</a></p>
 			</div>
 
 		<div class="col-lg-4 col-sm-12">
